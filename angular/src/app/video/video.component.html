@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body video">
+    <a routerLink="/video/{{video._id}}">
+      <p class="card-title">Title: {{ video.title }}</p>
+      <p class="card-text">Description: {{ video.description }}</p>
+      <p class="card-text">Average Rating: {{ video.averageRating }}</p>
+      <p class="card-text">Reviews:</p>
+      <ul *ngFor="let review of video.reviews">
+        <li>
+          Rating: {{review.rating}}
+        </li>
+        <li>
+          Review: {{review.review}}
+        </li>
+      </ul>
+    </a>
+  </div>
+</div>

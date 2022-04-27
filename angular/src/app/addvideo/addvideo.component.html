@@ -1,0 +1,30 @@
+<div>
+  <h3>Add Video</h3>
+  <form #addVideoForm="ngForm" (ngSubmit)="save(addVideoForm)">
+    <div>
+      <label>Title:
+        <input placeholder="Title Placeholder" name="title" class="form-control" [(ngModel)]="video.title">
+      </label>
+      <br/>
+      <label>Description:
+        <input placeholder="Description Placeholder" name="description" class="form-control" [(ngModel)]="video.description">
+      </label>
+      <br/>
+      <label>Rating:</label>
+      <select name="rating" class="form-control" [(ngModel)]="reviews.rating" id="dropdown" >
+        <option>5</option>
+        <option>4</option>
+        <option>3</option>
+        <option>2</option>
+        <option>1</option>
+      </select>
+      <br/>
+      <label>Review:
+        <textarea placeholder="Review Placeholder" name="review" class="form-control" [(ngModel)]="reviews.review" id="textarea"></textarea>
+      </label>
+      <br/>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">save</button>
+  </form>
+</div>

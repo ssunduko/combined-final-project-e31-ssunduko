@@ -1,0 +1,17 @@
+<div>
+  <form #form="ngForm" (ngSubmit)="updateVideo(form.value)">
+    <div class="form-group">
+      <label for="titleField">Title:</label>
+      <input #title name="titleField" class="form-control" [ngModel]="video.title">
+      <br />
+      <label for="descField">Description:</label>
+      <input name="descField" class="form-control" [ngModel]="video.description">
+      <br />
+      <label>Average Rating: {{ video.averageRating }}</label>
+      <br />
+    </div>
+    <button type="submit">save</button>
+    <button type="button" (click)="cancel()">cancel</button>
+    <button type="button" (click)="deleteVideo()">delete this video</button>
+  </form>
+</div>

@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <app-video class="col-sm-3"
+               *ngFor='let videoObject of videoList'
+               [video]="videoObject">
+    </app-video>
+  </div>
+</div>
+<app-addvideo (newVideo)="updateVideoList()"></app-addvideo>
