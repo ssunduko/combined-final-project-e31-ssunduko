@@ -2,7 +2,9 @@
 
 .env
 .idea
-.iml
+*.iml
+/angular/.angular
+/angular/.vscode
 node_modules
 
 # Compiled output
