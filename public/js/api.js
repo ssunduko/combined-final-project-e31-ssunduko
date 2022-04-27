@@ -1,6 +1,6 @@
 (function(){
 
-   const baseURL = 'http://localhost:9090';
+   const baseURL = 'http://3.235.10.219:9090';
 
     /**
      * This is a method for testing Video REST API
