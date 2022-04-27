@@ -9,6 +9,17 @@
       <br />
       <label>Average Rating: {{ video.averageRating }}</label>
       <br />
+      <label>Reviews:</label>
+      <br />
+      <ul *ngFor="let review of video.reviews">
+        <li>
+          Rating: {{review.rating}}
+        </li>
+        <li>
+          Review: {{review.review}}
+        </li>
+      </ul>
+      <br />
     </div>
     <button type="submit">save</button>
     <button type="button" (click)="cancel()">cancel</button>
