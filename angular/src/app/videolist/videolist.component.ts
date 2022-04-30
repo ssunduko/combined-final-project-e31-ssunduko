@@ -7,6 +7,10 @@ import { VideoService } from '../video.service';
   styleUrls: ['./videolist.component.css'],
   providers: [VideoService]
 })
+
+/**
+ * Video List Component
+ */
 export class VideolistComponent implements OnInit {
 
   constructor(private videoService:VideoService){
@@ -17,7 +21,12 @@ export class VideolistComponent implements OnInit {
   ngOnInit() {
     this.updateVideoList();
   }
+
+  /**
+   * Method for getting list of Videos
+   */
   updateVideoList():void{
+    //Get all Videos from Video Service
     this.videoService.listVideos().subscribe((videos)=>{
       this.videoList = videos;
     });

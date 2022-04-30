@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoService } from './video.service';
 
 @Component({
   selector: 'app-root',

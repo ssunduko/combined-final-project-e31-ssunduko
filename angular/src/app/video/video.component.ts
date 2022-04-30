@@ -5,10 +5,13 @@ import { Component, Input } from '@angular/core';
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css']
 })
+
+/**
+ * Video Component
+ */
 export class VideoComponent{
 
   @Input() video:any;
   constructor() {
   }
-
 }
