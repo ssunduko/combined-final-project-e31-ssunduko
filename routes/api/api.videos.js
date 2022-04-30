@@ -98,17 +98,16 @@ router.post('/', upload.none(), async (req, res, next)=>{
         }]
     }
 
-    //Call Video Service to create video
-    const videoSave = await VideoService.create(video)
-        .then((video) => {
-            console.log(`created ${videoSave.id}`);
-            res.status(200);
-            res.send(JSON.stringify(videoSave));
-    }).catch((err)=> {
-        res.status(404);
-        res.end();
-    });
-
+    try{
+        //Call Video Service to create video
+        const videoSave = await VideoService.create(video)
+        console.log(`created ${videoSave.id}`);
+        res.status(201);
+        res.send(JSON.stringify(videoSave));
+    }catch(err){
+        console.log(err);
+        throw new Error("VideoSaveError", video);
+    }
 });
 
 /**
