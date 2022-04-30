@@ -22,9 +22,6 @@ class VideoService {
      * @returns {*}
      */
       static update(id, data){
-
-        console.log("Got Here: " + JSON.stringify(data.reviews));
-
           return Video.findById(id)
               .then((video)=>{
                   video.set(data);

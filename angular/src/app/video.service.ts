@@ -16,6 +16,7 @@ export class VideoService {
    * Method for getting all Videos
    */
   listVideos(){
+    //Call node api
     return this.http.get(this.url);
   }
 
@@ -24,6 +25,7 @@ export class VideoService {
    * @param id
    */
   getVideo(id:string){
+    //Call node api
     return this.http.get(this.url + id);
   }
 
@@ -32,6 +34,7 @@ export class VideoService {
    * @param video
    */
   createVideo(video: FormData){
+    //Call node api
     return this.http.post(this.url, video);
   }
 
@@ -41,6 +44,7 @@ export class VideoService {
    * @param data
    */
   updateVideo(id:string, data:any){
+    //Call node api
     return this.http.put(this.url + id, data);
   }
 
@@ -49,6 +53,7 @@ export class VideoService {
    * @param id
    */
   deleteVideo(id:string){
+    //Call node api
     return this.http.delete(this.url + id);
   }
 }

@@ -43,7 +43,6 @@ router.get('/', (req, res, next)=>{
  */
 router.get('/:videoid', (req, res, next)=>{
 
-    console.log(`looking for ${req.params.videoid}`);
     //Call Video Service to get video by id
     VideoService.read(req.params.videoid)
         .then((video) => {
@@ -61,10 +60,7 @@ router.get('/:videoid', (req, res, next)=>{
  */
 router.put('/:videoid', (req, res, next)=>{
 
-    console.log(`updating ${req.params.videoid}`);
     let data = req.body;
-
-    console.log('Got Reviews: ' + JSON.stringify(data.reviews));
 
     //Call Video Service to update video by id
     VideoService.update(req.params.videoid, data)
@@ -102,17 +98,17 @@ router.post('/', upload.none(), async (req, res, next)=>{
         }]
     }
 
-    console.log('creating ' + JSON.stringify(video));
-    try{
-        //Call Video Service to create video
-        const videoSave = await VideoService.create(video)
-        console.log(`created ${videoSave.id}`);
-        res.status(201);
-        res.send(JSON.stringify(videoSave));
-    }catch(err){
-        console.log(err);
-        throw new Error("VideoSaveError", video);
-    }
+    //Call Video Service to create video
+    const videoSave = await VideoService.create(video)
+        .then((video) => {
+            console.log(`created ${videoSave.id}`);
+            res.status(200);
+            res.send(JSON.stringify(videoSave));
+    }).catch((err)=> {
+        res.status(404);
+        res.end();
+    });
+
 });
 
 /**
