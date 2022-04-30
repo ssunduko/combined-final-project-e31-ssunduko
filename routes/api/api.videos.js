@@ -64,6 +64,8 @@ router.put('/:videoid', (req, res, next)=>{
     console.log(`updating ${req.params.videoid}`);
     let data = req.body;
 
+    console.log('Got Reviews: ' + JSON.stringify(data.reviews));
+
     //Call Video Service to update video by id
     VideoService.update(req.params.videoid, data)
         .then((updatedVideo)=>{

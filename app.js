@@ -19,7 +19,6 @@ app.use(bodyparser.json());
 
 // set up routes and routers
 app.use('/', express.static('dist/final-project-e31-ssunduko'))
-app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/api/videos', apivideos);
 
 // catch any remaining routing errors

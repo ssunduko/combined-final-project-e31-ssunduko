@@ -1,28 +1,33 @@
 <div>
   <form #form="ngForm" (ngSubmit)="updateVideo(form.value)">
     <div class="form-group">
-      <label for="titleField">Title:</label>
-      <input #title name="titleField" class="form-control" [ngModel]="video.title">
+      <label>Title:</label>
+      <input name="title" class="form-control" [ngModel]="video.title">
       <br />
-      <label for="descField">Description:</label>
-      <input name="descField" class="form-control" [ngModel]="video.description">
+      <label>Description:</label>
+      <input name="description" class="form-control" [ngModel]="video.description">
       <br />
       <label>Average Rating: {{ video.averageRating }}</label>
       <br />
-      <label>Reviews:</label>
       <br />
-      <ul *ngFor="let review of video.reviews">
-        <li>
-          Rating: {{review.rating}}
-        </li>
-        <li>
-          Review: {{review.review}}
-        </li>
-      </ul>
-      <br />
+      <h3>Add Review</h3>
+      <label>Rating:</label>
+      <select name="rating" class="form-control" [(ngModel)]="rating" id="dropdown" >
+        <option>5</option>
+        <option>4</option>
+        <option>3</option>
+        <option>2</option>
+        <option>1</option>
+      </select>
+      <br/>
+      <label>Review:
+        <textarea placeholder="Review Placeholder" name="review" class="form-control" [(ngModel)]="review" id="textarea"></textarea>
+      </label>
+      <br/>
     </div>
-    <button type="submit">save</button>
     <button type="button" (click)="cancel()">cancel</button>
-    <button type="button" (click)="deleteVideo()">delete this video</button>
+    <button type="submit">update video</button>
+    <button type="button" (click)="deleteVideo()">delete video</button>
+    <button type="button" (click)="addReview()">add review</button>
   </form>
 </div>
